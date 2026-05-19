@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Guide complet TMBO 2026 : destruction d'archives et mobilier — processus certifié, erreurs RGPD, délais légaux, économie circulaire. Frais offerts." />
+  <title>Archives & mobilier : le guide complet TMBO 2026 – TMBO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .article-layout { display:grid; grid-template-columns:1fr 320px; gap:64px; align-items:start; padding:72px 0; }
+    .article-body h2 { font-size:1.6rem; margin:44px 0 14px; color:var(--grey-900); }
+    .article-body h3 { font-size:1.15rem; margin:26px 0 10px; color:var(--red); }
+    .article-body p { color:var(--grey-600); margin-bottom:18px; line-height:1.85; }
+    .article-body strong { color:var(--grey-800); }
+    .article-body ul { margin:0 0 20px 20px; list-style:disc; }
+    .article-body ul li { color:var(--grey-600); margin-bottom:8px; line-height:1.7; }
+    .article-hero-img { width:100%; border-radius:10px; margin-bottom:36px; box-shadow:var(--shadow-md); display:block; }
+    .article-infog { width:100%; border-radius:10px; margin:32px 0; box-shadow:var(--shadow-md); display:block; }
+    .article-meta { display:flex; align-items:center; gap:16px; margin-bottom:28px; flex-wrap:wrap; }
+    .article-meta .tag { background:var(--red); color:var(--white); font-family:var(--font-title); font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 14px; border-radius:20px; }
+    .article-meta .date { font-size:.88rem; color:var(--grey-400); }
+    .article-body h1 { font-size:clamp(1.8rem,4vw,2.6rem); margin-bottom:20px; line-height:1.2; }
+
+    /* Blocs erreur numérotés */
+    .erreur-block { display:flex; gap:22px; align-items:flex-start; background:var(--white); border:1px solid var(--grey-200); border-radius:10px; padding:24px; margin:22px 0; box-shadow:var(--shadow-sm); border-left:5px solid var(--red); transition:box-shadow .25s; }
+    .erreur-block:hover { box-shadow:var(--shadow-md); }
+    .erreur-num { flex-shrink:0; width:48px; height:48px; background:var(--red); color:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-title); font-size:1.5rem; font-weight:900; }
+    .erreur-content h3 { font-size:1.05rem; color:var(--grey-900); margin:0 0 6px; }
+    .erreur-content p { color:var(--grey-600); font-size:.92rem; margin:0; line-height:1.7; }
+    .erreur-content .solution { margin-top:10px; padding:8px 12px; background:var(--grey-100); border-radius:var(--radius); font-size:.87rem; color:var(--grey-700); border-left:3px solid #4caf50; }
+    .erreur-content .solution strong { color:#2e7d32; }
+
+    /* Offre */
+    .offre-box { background:var(--grey-900); border-radius:10px; padding:28px 32px; margin:40px 0; border-left:5px solid var(--red); position:relative; overflow:hidden; }
+    .offre-box::before { content:''; position:absolute; right:-40px; top:-40px; width:140px; height:140px; background:radial-gradient(circle,rgba(200,16,46,.3) 0%,transparent 70%); border-radius:50%; }
+    .offre-box .offre-tag { display:inline-block; background:var(--red); color:var(--white); font-family:var(--font-title); font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:14px; }
+    .offre-box h3 { color:var(--white); font-size:1.3rem; margin-bottom:8px; }
+    .offre-box p { color:rgba(255,255,255,.75); margin-bottom:18px; }
+
+    /* Tableau délais */
+    .delais-table { width:100%; border-collapse:collapse; margin:20px 0 28px; border-radius:8px; overflow:hidden; box-shadow:var(--shadow-sm); }
+    .delais-table th { background:var(--grey-900); color:var(--white); font-family:var(--font-title); font-size:.85rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:12px 16px; text-align:left; }
+    .delais-table td { padding:10px 16px; font-size:.9rem; color:var(--grey-700); border-bottom:1px solid var(--grey-200); }
+    .delais-table tr:nth-child(even) td { background:var(--grey-100); }
+    .delais-table tr:last-child td { border-bottom:none; }
+    .delais-table td:last-child { color:var(--red); font-weight:700; }
+
+    /* Sidebar */
+    .article-sidebar { position:sticky; top:100px; display:flex; flex-direction:column; gap:24px; }
+    .sidebar-card { background:var(--white); border:1px solid var(--grey-200); border-radius:10px; padding:24px; }
+    .sidebar-card.dark { background:var(--grey-900); border-color:transparent; }
+    .sidebar-card h4 { font-size:1rem; margin-bottom:12px; padding-bottom:8px; border-bottom:2px solid var(--red); display:inline-block; }
+    .sidebar-card.dark h4 { color:var(--white); }
+    .sidebar-card.dark p { color:rgba(255,255,255,.65); font-size:.9rem; margin-bottom:16px; }
+    .sidebar-links { display:flex; flex-direction:column; gap:9px; margin-top:12px; }
+    .sidebar-links a { font-size:.87rem; color:var(--grey-700); padding:7px 0; border-bottom:1px solid var(--grey-200); transition:color .25s; display:flex; align-items:center; gap:8px; }
+    .sidebar-links a:last-child { border-bottom:none; }
+    .sidebar-links a:hover { color:var(--red); }
+    .sidebar-links a::before { content:'→'; color:var(--red); font-size:.8rem; }
+    .breadcrumb { padding:14px 0; font-size:.85rem; color:var(--grey-400); }
+    .breadcrumb a { color:var(--grey-400); } .breadcrumb a:hover { color:var(--red); }
+    .breadcrumb span { color:var(--red); margin:0 6px; }
+    @media(max-width:960px){ .article-layout{grid-template-columns:1fr;} .article-sidebar{position:static;} .erreur-block{flex-direction:column;gap:12px;} }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <div class="header-top-contact">
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> 28 Av. de la Division Leclerc, 93000 Bobigny</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.18 2 2 0 013.97 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> <a href="tel:+33148574744">01 48 57 47 44</a></span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg> <a href="mailto:contact@tmbo.fr">contact@tmbo.fr</a></span>
+        </div>
+        <div class="header-top-social">
+          <a href="https://www.facebook.com/TMBO-203880733445598/" target="_blank" rel="noopener" aria-label="Facebook TMBO"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.linkedin.com/company/tmbo-93/" target="_blank" rel="noopener" aria-label="LinkedIn TMBO"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="container header-main-inner">
+        <a href="index.html" class="logo"><img src="logo_tmbo_debarras.png" alt="Logo TMBO"/></a>
+        <nav class="nav-desktop">
+          <a href="index.html">Accueil</a>
+          <div class="nav-dropdown"><a href="debarras.html">Débarras <span class="arrow">▾</span></a><div class="dropdown-menu"><a href="debarras.html#papiers">Destruction d'archives</a><a href="debarras.html#deee">Déchets électroniques</a><a href="debarras.html#mobilier">Recyclage mobilier</a><a href="debarras.html#locaux">Locaux professionnels</a><a href="debarras.html#particuliers">Logements</a></div></div>
+          <div class="nav-dropdown"><a href="demenagement.html">Déménagement <span class="arrow">▾</span></a><div class="dropdown-menu"><a href="demenagement.html#admin">Transfert administratif</a><a href="demenagement.html#industriel">Transfert industriel</a><a href="demenagement.html#particuliers">Particuliers</a><a href="demenagement.html#manutention">Manutention</a><a href="demenagement.html#garde">Garde meubles & archives</a></div></div>
+          <a href="mobilier.html">Mobilier</a>
+          <a href="actualites.html" class="active">Actualités</a>
+          <a href="devis.html" class="btn-nav">Devis Gratuit</a>
+        </nav>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="nav-mobile" id="navMobile">
+      <a href="index.html">Accueil</a><a href="debarras.html">Débarras</a><a href="demenagement.html">Déménagement</a><a href="mobilier.html">Mobilier</a><a href="actualites.html">Actualités</a>
+      <a href="devis.html" class="btn-nav-mobile">Devis Gratuit</a>
+    </nav>
+  </header>
+
+  <div class="breadcrumb"><div class="container"><a href="index.html">Accueil</a><span>›</span><a href="actualites.html">Actualités</a><span>›</span>Archives &amp; mobilier — guide TMBO 2026</div></div>
+
+  <section class="page-hero"><div class="container">
+    <span class="section-label">Archives · Mobilier · RGPD · Mars 2026</span>
+    <h1>Destruction d'archives : tout ce qu'il faut savoir</h1>
+    <p>Le processus TMBO en 6 étapes, les 5 erreurs qui coûtent cher, et les délais légaux. Frais de traitement offerts.</p>
+  </div></section>
+
+  <div class="container article-layout">
+    <article class="article-body">
+      <div class="article-meta">
+        <span class="tag">Archives</span>
+        <span class="tag" style="background:#2e7d32;">RGPD</span>
+        <span class="tag" style="background:#1565c0;">Mobilier</span>
+        <span class="date">Mars 2026</span>
+      </div>
+
+      <h1>Archives &amp; mobilier de bureau : le guide complet TMBO 2026</h1>
+
+      <p>Dans beaucoup d'entreprises, des armoires entières débordent de documents dont la durée légale est dépassée depuis des années. Risque RGPD, espace saturé, coût de stockage inutile… Et pourtant, on reporte. Souvent par peur du coût, parfois par manque d'information sur la marche à suivre.</p>
+      <p>Ce guide répond aux deux questions essentielles : <strong>comment ça se passe concrètement ?</strong> Et <strong>quelles erreurs éviter ?</strong></p>
+
+      <img class="article-hero-img" src="https://tmbo-debarras.fr/wp-content/uploads/2022/07/destruction-de-papier-et-archives-tmbo-2.png" alt="Destruction d'archives et papiers TMBO" loading="eager" style="margin-bottom:24px;"/>
+
+      <h2>Le processus TMBO en 6 étapes</h2>
+      <p>De la collecte sur site jusqu'au certificat officiel — voici exactement comment TMBO gère la destruction de vos archives, de A à Z.</p>
+
+      <img class="article-infog" src="archives-processus.png"
+        alt="Processus TMBO destruction archives en 6 étapes : extraction, chargement, transport, destruction, certificat, recyclage"
+        loading="eager" />
+
+      <p>Ce processus garantit une <strong>traçabilité complète</strong> de vos documents, de leur sortie de vos locaux jusqu'à leur destruction certifiée. Aucun document ne transite par un espace non sécurisé. Chaque intervention se conclut par la remise d'un <strong>certificat officiel de destruction</strong> — indispensable pour votre conformité RGPD et vos audits.</p>
+
+      <div class="offre-box">
+        <div class="offre-tag">Offre permanente TMBO</div>
+        <h3>Frais de mise en traitement offerts</h3>
+        <p>Pour toute opération de destruction d'archives confiée à TMBO, les frais de mise en traitement sont offerts. Intervention complète, transport sécurisé, destruction certifiée — sans surprise sur la facture.</p>
+        <a href="devis.html" class="btn-primary">Demander un devis gratuit</a>
+      </div>
+
+      <h2>Combien de temps garder vos documents ?</h2>
+      <p>Au-delà des délais légaux, conserver des données personnelles sans justification constitue une infraction au RGPD, passible de sanctions pouvant atteindre <strong>4 % du chiffre d'affaires mondial</strong> ou 20 millions d'euros.</p>
+
+      <table class="delais-table">
+        <thead><tr><th>Type de document</th><th>Durée légale</th></tr></thead>
+        <tbody>
+          <tr><td>Livres et registres comptables</td><td>10 ans</td></tr>
+          <tr><td>Factures clients et fournisseurs</td><td>10 ans</td></tr>
+          <tr><td>Contrats commerciaux</td><td>5 ans après expiration</td></tr>
+          <tr><td>Bulletins de paie</td><td>5 ans</td></tr>
+          <tr><td>Déclarations fiscales (TVA, IS…)</td><td>6 ans</td></tr>
+          <tr><td>Documents sociaux (statuts, PV AG)</td><td>5 ans après dissolution</td></tr>
+          <tr><td>Correspondances commerciales</td><td>5 ans</td></tr>
+          <tr><td>Documents douaniers</td><td>3 ans</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Les 5 erreurs qui vous exposent</h2>
+
+      <div class="erreur-block">
+        <div class="erreur-num">1</div>
+        <div class="erreur-content">
+          <h3>Jeter ses archives à la poubelle ou dans la benne</h3>
+          <p>Une fois dans une benne commune, vos documents sont accessibles à n'importe qui. Bulletin de paie, RIB, numéros de sécurité sociale… La CNIL qualifie ce type de négligence de <strong>violation de données personnelles</strong>.</p>
+          <div class="solution"><strong>✓ Solution TMBO :</strong> collecte en contenants scellés, transport sécurisé, aucun document n'est exposé.</div>
+        </div>
+      </div>
+
+      <div class="erreur-block">
+        <div class="erreur-num">2</div>
+        <div class="erreur-content">
+          <h3>Confier la destruction à un prestataire non certifié</h3>
+          <p>Sans certification ni traçabilité, vous n'avez aucune garantie que vos documents seront réellement détruits. En cas de contrôle CNIL, c'est <strong>votre responsabilité</strong> qui sera engagée.</p>
+          <div class="solution"><strong>✓ Solution TMBO :</strong> destruction en usine agréée, certificat officiel remis systématiquement.</div>
+        </div>
+      </div>
+
+      <div class="erreur-block">
+        <div class="erreur-num">3</div>
+        <div class="erreur-content">
+          <h3>Détruire avant la fin du délai légal</h3>
+          <p>L'excès inverse existe aussi. Détruire prématurément des documents peut rendre impossible votre défense en cas de litige fiscal ou commercial.</p>
+          <div class="solution"><strong>✓ Solution TMBO :</strong> notre équipe vous conseille sur les durées applicables avant toute intervention.</div>
+        </div>
+      </div>
+
+      <div class="erreur-block">
+        <div class="erreur-num">4</div>
+        <div class="erreur-content">
+          <h3>Ne pas conserver de preuve de la destruction</h3>
+          <p>Sans certificat, vous ne pouvez pas prouver que la destruction a eu lieu. Lors d'un audit ou d'un contrôle, l'absence de traçabilité peut vous être opposée.</p>
+          <div class="solution"><strong>✓ Solution TMBO :</strong> certificat de destruction officiel remis à chaque opération, sans frais supplémentaires.</div>
+        </div>
+      </div>
+
+      <div class="erreur-block">
+        <div class="erreur-num">5</div>
+        <div class="erreur-content">
+          <h3>Reporter par peur du coût</h3>
+          <p>Plus vous attendez, plus les volumes augmentent et plus l'opération devient lourde. Le coût d'une amende CNIL est sans commune mesure avec celui d'une intervention de débarras.</p>
+          <div class="solution"><strong>✓ Solution TMBO :</strong> frais de mise en traitement <strong>offerts</strong>. Aucune raison de reporter.</div>
+        </div>
+      </div>
+
+
+      <h2>Mobilier de bureau : que devient-il après votre débarras ?</h2>
+      <p>Le débarras d'archives s'accompagne souvent d'une évacuation de mobilier usagé — bureaux, sièges, armoires, cloisons. Chez TMBO, ce mobilier ne finit pas en décharge.</p>
+
+      <h3>Réemploi prioritaire</h3>
+      <p>Tout meuble en bon état est récupéré, nettoyé, contrôlé puis intégré à notre <strong>stock de mobilier reconditionné</strong>. Il repart chez d'autres entreprises, associations ou collectivités. C'est la valorisation la plus vertueuse : aucune transformation supplémentaire, une seconde vie directe.</p>
+
+      <h3>Recyclage matière si nécessaire</h3>
+      <p>Le mobilier trop usé est démonté par matière : <strong>métaux en fonderie, bois en filière bois-énergie, plastiques en recyclage matière</strong>. Rien ne part à la décharge sans avoir été trié et orienté vers la filière adaptée.</p>
+
+      <h3>Un geste conforme à la loi AGEC</h3>
+      <p>Depuis 2022, la loi AGEC impose aux entreprises de justifier le traitement de leurs déchets. En faisant appel à TMBO, vous disposez de la documentation nécessaire pour vos bilans RSE et vos audits — archivage, DEEE, mobilier, tout est tracé.</p>
+
+      <h2>En résumé</h2>
+      <p>Détruire ses archives n'est pas une option — c'est une obligation légale et un acte de gestion responsable. Avec TMBO, c'est aussi une opportunité de le faire <strong>sans frais de traitement</strong>, avec un processus certifié de bout en bout et un certificat à la clé.</p>
+
+      <div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--grey-200);display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="devis.html" class="btn-primary">Demander un devis gratuit</a>
+        <a href="debarras.html#papiers" class="btn-outline">Nos prestations archives →</a>
+        <a href="mobilier.html" class="btn-outline">Mobilier de bureau →</a>
+      </div>
+    </article>
+
+    <aside class="article-sidebar">
+      <div class="sidebar-card dark">
+        <h4>Frais de traitement offerts</h4>
+        <p>Destruction certifiée, certificat officiel inclus. Réponse sous 24h.</p>
+        <a href="devis.html" class="btn-primary" style="display:block;text-align:center;">Devis gratuit</a>
+        <a href="tel:+33148574744" style="display:block;text-align:center;margin-top:10px;color:rgba(255,255,255,.5);font-size:.85rem;">01 48 57 47 44</a>
+      </div>
+      <div class="sidebar-card">
+        <h4>Articles liés</h4>
+        <div class="sidebar-links">
+          <a href="actu-4-debarras-eco-responsable.html">Débarras 100 % éco-responsable</a>
+          <a href="actu-3-mobilier-economie-circulaire.html">Mobilier — seconde vie</a>
+          <a href="actu-5-bonne-annee-2026.html">Vœux 2026 — l'équipe TMBO</a>
+          <a href="actu-6-nettoyage-printemps-2026.html">Nettoyage de printemps 2026</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <h4>Nos prestations</h4>
+        <div class="sidebar-links">
+          <a href="debarras.html#papiers">Destruction d'archives</a>
+          <a href="debarras.html#deee">Déchets électroniques</a>
+          <a href="debarras.html#locaux">Débarras locaux pro</a>
+          <a href="demenagement.html#garde">Garde meubles & archives</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="logo_tmbo_debarras.png" alt="Logo TMBO"/>
+        <p>Débarras &amp; déménagement à Paris et en IDF depuis 1986.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/TMBO-203880733445598/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.linkedin.com/company/tmbo-93/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Débarras</h4><ul>
+        <li><a href="debarras.html#papiers">Destruction d'archives</a></li>
+        <li><a href="debarras.html#deee">Déchets électroniques</a></li>
+        <li><a href="debarras.html#mobilier">Recyclage mobilier</a></li>
+        <li><a href="debarras.html#locaux">Locaux professionnels</a></li>
+        <li><a href="debarras.html#particuliers">Logements</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Déménagement</h4><ul>
+        <li><a href="demenagement.html#admin">Transfert administratif</a></li>
+        <li><a href="demenagement.html#industriel">Transfert industriel</a></li>
+        <li><a href="demenagement.html#particuliers">Particuliers</a></li>
+        <li><a href="demenagement.html#manutention">Manutention</a></li>
+        <li><a href="demenagement.html#garde">Garde meubles &amp; archives</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Infos</h4><ul>
+        <li><a href="mobilier.html">Mobilier occasion</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="devis.html">Devis gratuit</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><div class="container">
+      <p>© <span id="year"></span> TMBO – Tous droits réservés. | Site réalisé par <a href="https://www.charonneburo.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55);text-decoration:underline;">Charonne Buro</a></p>
+      <a href="#header" class="back-top" aria-label="Haut de page">↑</a>
+    </div></div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('navMobile');
+    if(toggle&&nav){toggle.addEventListener('click',()=>{const o=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!o));nav.classList.toggle('open');toggle.classList.toggle('active');});}
+    window.addEventListener('scroll',()=>{const h=document.getElementById('header');if(h)h.classList.toggle('scrolled',window.scrollY>60);});
+
+    // Dropdown nav : délai de fermeture pour éviter disparition trop rapide
+    document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
+      var timer;
+      dd.addEventListener('mouseenter', function() {
+        clearTimeout(timer);
+        this.querySelector('.dropdown-menu').style.opacity = '1';
+        this.querySelector('.dropdown-menu').style.pointerEvents = 'auto';
+        this.querySelector('.dropdown-menu').style.transform = 'none';
+      });
+      dd.addEventListener('mouseleave', function() {
+        var menu = this.querySelector('.dropdown-menu');
+        timer = setTimeout(function() {
+          menu.style.opacity = '';
+          menu.style.pointerEvents = '';
+          menu.style.transform = '';
+        }, 200);
+      });
+    });
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.08});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+  </script>
+  <script src="mascotte.js"></script>
+</body>
+</html>

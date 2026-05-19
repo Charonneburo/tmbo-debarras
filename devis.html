@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Demandez un devis gratuit à TMBO pour votre débarras ou déménagement en Île-de-France. Réponse sous 24h." />
+  <title>Devis Gratuit – TMBO Débarras & Déménagement IDF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .visuel-section {
+      background: var(--grey-100);
+      padding: 40px 0;
+      border-bottom: 1px solid var(--grey-200);
+    }
+    .visuel-tmbo {
+      width: 100%;
+      max-width: 1100px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* ── Upload fichiers devis ── */
+    .devis-file-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid var(--grey-200); border-radius: var(--radius);
+      padding: 10px 16px; cursor: pointer; font-size: .9rem;
+      color: var(--grey-600); background: var(--grey-100);
+      transition: border-color .2s, color .2s, background .2s;
+      margin-top: 6px;
+    }
+    .devis-file-btn:hover { border-color: var(--red); color: var(--red); background: var(--red-light); }
+    .devis-file-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .devis-file-chip {
+      display: flex; align-items: center; gap: 6px;
+      background: #fff; border: 1px solid var(--grey-200); border-radius: 20px;
+      padding: 4px 12px; font-size: .82rem; color: var(--grey-700);
+    }
+    .devis-file-chip button {
+      background: none; border: none; cursor: pointer; color: var(--grey-400);
+      font-size: 14px; line-height: 1; padding: 0; margin-left: 2px;
+    }
+    .devis-file-chip button:hover { color: var(--red); }
+    .devis-file-err { font-size: .82rem; color: var(--red); margin-top: 6px; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER (identique) ===== -->
+  <header class="site-header" id="header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <div class="header-top-contact">
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Centre d'activités Leclerc Étoile, 28 Av. de la Division Leclerc, 93000 Bobigny</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.18 2 2 0 013.97 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> <a href="tel:+33148574744">01 48 57 47 44</a></span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg> <a href="mailto:contact@tmbo.fr">contact@tmbo.fr</a></span>
+        </div>
+        <div class="header-top-social">
+          <a href="https://www.facebook.com/TMBO-203880733445598/" target="_blank" rel="noopener" aria-label="Facebook TMBO">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/tmbo-93/" target="_blank" rel="noopener" aria-label="LinkedIn TMBO">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+</div>
+    </div>
+    <div class="header-main">
+      <div class="container header-main-inner">
+        <a href="index.html" class="logo">
+          <img src="logo_tmbo_debarras.png">
+        </a>
+        <nav class="nav-desktop" aria-label="Navigation principale">
+          <a href="index.html">Accueil</a>
+          <div class="nav-dropdown">
+            <a href="debarras.html">Débarras <span class="arrow">▾</span></a>
+            <div class="dropdown-menu">
+              <a href="debarras.html#papiers">Destruction d'archives</a>
+              <a href="debarras.html#deee">Déchets électroniques (DEEE)</a>
+              <a href="debarras.html#mobilier">Recyclage mobilier de bureau</a>
+              <a href="debarras.html#locaux">Débarras locaux pro (DIB)</a>
+              <a href="debarras.html#particuliers">Débarras particuliers</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="demenagement.html">Déménagement <span class="arrow">▾</span></a>
+            <div class="dropdown-menu">
+              <a href="demenagement.html#admin">Transfert administratif</a>
+              <a href="demenagement.html#industriel">Transfert industriel</a>
+              <a href="demenagement.html#particuliers">Déménagement particuliers</a>
+              <a href="demenagement.html#manutention">Manutention interne</a>
+              <a href="demenagement.html#garde">Garde meubles & archives</a>
+            </div>
+          </div>
+          <a href="mobilier.html">Mobilier de bureau</a>
+          <a href="actualites.html">Actualités</a>
+          <a href="devis.html" class="btn-nav active">Devis Gratuit</a>
+        </nav>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="nav-mobile" id="navMobile">
+      <a href="index.html">Accueil</a>
+      <a href="debarras.html">Prestations de Débarras</a>
+      <a href="demenagement.html">Prestations de Déménagement</a>
+      <a href="mobilier.html">Mobilier de bureau</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="devis.html" class="btn-nav-mobile">Devis Gratuit</a>
+    </nav>
+  </header>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Gratuit · Sans engagement · Réponse sous 24h</span>
+      <h1>Demandez votre devis</h1>
+      <p>Réponse sous 24h ouvrées · Intervention possible dès le lendemain</p>
+    </div>
+  </section>
+
+  <!-- ===== VISUEL TMBO ===== -->
+  <section class="visuel-section">
+    <div class="container">
+      <img
+        src="tmbo-visuel.png"
+        alt="TMBO – Débarras, Manutention, Garde Meuble, Vente Mobilier, Évacuation, Mise en Destruction Sécurisée des Archives – Frais de mise en traitement offerts"
+        class="visuel-tmbo"
+        loading="eager"
+      />
+    </div>
+  </section>
+
+  <!-- ===== FORMULAIRE ===== -->
+  <section class="devis-section">
+    <div class="container devis-grid">
+
+      <!-- Formulaire principal -->
+      <div class="form-card fade-in">
+        <h2>Votre demande</h2>
+        <p class="sub">Tous les champs marqués <span style="color:var(--red)">*</span> sont obligatoires.</p>
+
+        <form id="devisForm" novalidate>
+
+          <!-- Honeypot anti-spam (invisible pour les humains) -->
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">Ne pas remplir ce champ</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <!-- Identité -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="prenom">Prénom <span class="req">*</span></label>
+              <input type="text" id="prenom" name="prenom" placeholder="Jean" autocomplete="given-name" required />
+            </div>
+            <div class="form-group">
+              <label for="nom">Nom <span class="req">*</span></label>
+              <input type="text" id="nom" name="nom" placeholder="Dupont" autocomplete="family-name" required />
+            </div>
+          </div>
+
+          <!-- Société -->
+          <div class="form-group">
+            <label for="societe">Société / Organisation</label>
+            <input type="text" id="societe" name="societe" placeholder="Nom de votre entreprise (facultatif)" autocomplete="organization" />
+          </div>
+
+          <!-- Contact -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="jean.dupont@exemple.fr" autocomplete="email" required />
+            </div>
+            <div class="form-group">
+              <label for="telephone">Téléphone <span class="req">*</span></label>
+              <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00" autocomplete="tel" required />
+            </div>
+          </div>
+
+          <!-- Type de prestation -->
+          <div class="form-group">
+            <label for="prestation">Type de prestation <span class="req">*</span></label>
+            <select id="prestation" name="prestation" required>
+              <option value="">-- Sélectionnez une prestation --</option>
+              <optgroup label="Débarras">
+                <option value="destruction-archives">Destruction d'archives / papiers</option>
+                <option value="deee">Déchets électroniques (DEEE)</option>
+                <option value="mobilier">Recyclage mobilier de bureau</option>
+                <option value="locaux-pro">Débarras locaux professionnels (DIB)</option>
+                <option value="particulier-debarras">Débarras logement particulier</option>
+              </optgroup>
+              <optgroup label="Déménagement">
+                <option value="transfert-admin">Transfert administratif</option>
+                <option value="transfert-industriel">Transfert industriel</option>
+                <option value="particulier-demenagement">Déménagement particulier</option>
+                <option value="manutention">Manutention interne</option>
+                <option value="garde-meubles">Garde meubles & archives</option>
+              </optgroup>
+              <optgroup label="Mobilier">
+                <option value="achat-mobilier">Achat mobilier de bureau</option>
+                <option value="rachat-mobilier">Rachat mobilier de bureau</option>
+              </optgroup>
+              <option value="autre">Autre / Plusieurs prestations</option>
+            </select>
+          </div>
+
+          <!-- Adresse d'intervention -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="adresse">Adresse d'intervention <span class="req">*</span></label>
+              <input type="text" id="adresse" name="adresse" placeholder="123 rue de la République" required />
+            </div>
+            <div class="form-group">
+              <label for="codepostal">Code postal <span class="req">*</span></label>
+              <input type="text" id="codepostal" name="codepostal" placeholder="75001" pattern="[0-9]{5}" maxlength="5" required />
+            </div>
+          </div>
+
+          <!-- Délai souhaité -->
+          <div class="form-group">
+            <label for="delai">Délai souhaité</label>
+            <select id="delai" name="delai">
+              <option value="">-- Quand souhaitez-vous intervenir ? --</option>
+              <option value="urgent">Urgent (sous 48h)</option>
+              <option value="semaine">Cette semaine</option>
+              <option value="mois">Ce mois-ci</option>
+              <option value="planifier">À planifier (pas de date fixe)</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label for="message">Description de votre besoin <span class="req">*</span></label>
+            <textarea id="message" name="message" placeholder="Décrivez votre besoin : surface approximative, quantité (cartons, palettes…), accès (ascenseur, étage…), contraintes particulières…" required></textarea>
+          </div>
+
+
+          <!-- Pièces jointes -->
+          <div class="form-group">
+            <label>Joindre des fichiers <span style="font-weight:400;color:var(--grey-400)">(facultatif · max 5 · image, PDF, Word, Excel)</span></label>
+            <label for="devis-files" class="devis-file-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
+              Choisir des fichiers
+            </label>
+            <input type="file" id="devis-files" multiple
+              accept="image/*,.pdf,.doc,.docx,.xls,.xlsx"
+              style="display:none" />
+            <div id="devis-file-list" class="devis-file-list"></div>
+            <div id="devis-file-err" class="devis-file-err"></div>
+          </div>
+
+          <!-- Consentement RGPD -->
+          <div class="form-group" style="display:flex;gap:12px;align-items:flex-start;">
+            <input type="checkbox" id="rgpd" name="rgpd" required style="width:auto;margin-top:3px;accent-color:var(--red);" />
+            <label for="rgpd" style="font-weight:400;font-size:.88rem;color:var(--grey-600);cursor:pointer;">
+              J'accepte que mes données soient utilisées pour traiter ma demande de devis, conformément à la <a href="politique-confidentialite.html" style="color:var(--red)">politique de confidentialité</a> de TMBO. <span class="req">*</span>
+            </label>
+          </div>
+
+          <p class="form-note">Vos données ne seront jamais revendues ni utilisées à des fins commerciales autres que le traitement de votre demande.</p>
+
+          <div id="formError" class="form-error"></div>
+
+          <button type="submit" class="btn-primary form-submit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer ma demande de devis
+          </button>
+          <div id="formSuccess" class="form-success">
+            ✅ Votre demande a bien été envoyée ! Nous vous contacterons sous 24h ouvrées.
+          </div>
+        </form>
+      </div>
+
+      <!-- Colonne de droite -->
+      <aside class="devis-aside fade-in">
+        <h3>Ce qui nous différencie</h3>
+
+        <div class="aside-card">
+          <h4>⚡ Réactifs</h4>
+          <p>On répond en 24h et on peut intervenir dès le lendemain.</p>
+        </div>
+        <div class="aside-card">
+          <h4>🔒 Discrets</h4>
+          <p>Destruction certifiée, certificat officiel remis à chaque opération.</p>
+        </div>
+        <div class="aside-card">
+          <h4>♻️ Responsables</h4>
+          <p>Tri, réemploi, recyclage — on valorise tout ce qu'on enlève.</p>
+        </div>
+        <div class="aside-card">
+          <h4>📍 Partout en IDF</h4>
+          <p>Paris et toute l'IDF. Entrepôt de 1 500 m² sécurisé à Bobigny.</p>
+        </div>
+
+        <div class="aside-card" style="background:var(--grey-900);border-left-color:var(--grey-400);">
+          <h4 style="color:var(--white);">Vous préférez nous appeler ?</h4>
+          <p style="color:rgba(255,255,255,.65);margin-bottom:14px;">Lun–Ven · 9h30–18h30</p>
+          <a href="tel:+33148574744" class="btn-primary" style="display:inline-flex;font-size:.92rem;padding:12px 20px;gap:8px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.18 2 2 0 013.97 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            01 48 57 47 44
+          </a>
+        </div>
+      </aside>
+
+    </div><!-- /devis-grid -->
+  </section><!-- /devis-section -->
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© <span id="year"></span> TMBO – Tous droits réservés. | Site réalisé par <a href="https://www.charonneburo.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55);text-decoration:underline;">Charonne Buro</a></p>
+        <a href="#header" class="back-top" aria-label="Haut de page">↑</a>
+      </div>
+    </div>
+  </footer>
+
+      <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Nav burger
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('navMobile');
+    if(toggle&&nav){toggle.addEventListener('click',()=>{const o=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!o));nav.classList.toggle('open');toggle.classList.toggle('active');});}
+    // Header shadow on scroll
+    window.addEventListener('scroll',()=>{const h=document.getElementById('header');if(h)h.classList.toggle('scrolled',window.scrollY>60);});
+    // Fade-in observer — OBLIGATOIRE sinon les éléments restent invisibles
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.08});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+  </script>
+  <script src="mascotte.js"></script>
+</body>
+</html>
+
+

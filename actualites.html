@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Actualités TMBO : conseils et informations sur le débarras, la destruction d'archives, le déménagement d'entreprise en Île-de-France." />
+  <title>Actualités – TMBO Débarras & Déménagement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .actu-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 56px; align-items: start; }
+    .actu-list { display: flex; flex-direction: column; gap: 36px; }
+    .actu-card {
+      background: var(--white); border-radius: 10px;
+      border: 1px solid var(--grey-200); overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition);
+      display: grid; grid-template-columns: 260px 1fr;
+    }
+    .actu-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .actu-card-img { overflow: hidden; }
+    .actu-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .actu-card:hover .actu-card-img img { transform: scale(1.04); }
+    .actu-card-body { padding: 28px 32px; display: flex; flex-direction: column; gap: 12px; }
+    .actu-meta { display: flex; align-items: center; gap: 12px; }
+    .actu-date { font-family: var(--font-title); font-size: .82rem; font-weight: 700; color: var(--red); letter-spacing: .08em; text-transform: uppercase; }
+    .actu-tag { font-size: .75rem; background: var(--grey-100); color: var(--grey-600); padding: 3px 10px; border-radius: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+    .actu-card-body h2 { font-size: 1.3rem; line-height: 1.3; }
+    .actu-card-body h2 a { color: var(--grey-900); transition: color var(--transition); }
+    .actu-card-body h2 a:hover { color: var(--red); }
+    .actu-card-body p { color: var(--grey-600); font-size: .92rem; flex: 1; }
+    .actu-read { font-family: var(--font-title); font-size: .9rem; font-weight: 700; color: var(--red); letter-spacing: .04em; text-transform: uppercase; }
+
+    /* Sidebar */
+    .actu-sidebar { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 28px; }
+    .sidebar-card { background: var(--white); border: 1px solid var(--grey-200); border-radius: 10px; padding: 28px; }
+    .sidebar-card h3 { font-size: 1.1rem; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid var(--red); display: inline-block; }
+    .sidebar-links { display: flex; flex-direction: column; gap: 10px; }
+    .sidebar-links a { font-size: .9rem; color: var(--grey-700); padding: 8px 0; border-bottom: 1px solid var(--grey-200); transition: color var(--transition); display: flex; align-items: center; gap: 8px; }
+    .sidebar-links a:last-child { border-bottom: none; }
+    .sidebar-links a:hover { color: var(--red); }
+    .sidebar-links a::before { content: '→'; color: var(--red); font-size: .8rem; }
+
+    .breadcrumb { padding: 14px 0; font-size: .85rem; color: var(--grey-400); }
+    .breadcrumb a { color: var(--grey-400); } .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); margin: 0 6px; }
+
+    @media (max-width: 900px) {
+      .actu-grid { grid-template-columns: 1fr; }
+      .actu-card { grid-template-columns: 1fr; }
+      .actu-card-img { height: 200px; }
+      .actu-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <div class="header-top-contact">
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Centre d'activités Leclerc Étoile, 28 Av. de la Division Leclerc, 93000 Bobigny</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.18 2 2 0 013.97 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> <a href="tel:+33148574744">01 48 57 47 44</a></span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg> <a href="mailto:contact@tmbo.fr">contact@tmbo.fr</a></span>
+        </div>
+        <div class="header-top-social">
+          <a href="https://www.facebook.com/TMBO-203880733445598/" target="_blank" rel="noopener" aria-label="Facebook TMBO">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/tmbo-93/" target="_blank" rel="noopener" aria-label="LinkedIn TMBO">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+</div>
+    </div>
+    <div class="header-main">
+      <div class="container header-main-inner">
+        <a href="index.html" class="logo"><img src="logo_tmbo_debarras.png"></a>
+        <nav class="nav-desktop" aria-label="Navigation principale">
+          <a href="index.html">Accueil</a>
+          <div class="nav-dropdown">
+            <a href="debarras.html">Débarras <span class="arrow">▾</span></a>
+            <div class="dropdown-menu">
+              <a href="debarras.html#papiers">Destruction d'archives</a>
+              <a href="debarras.html#deee">Déchets électroniques</a>
+              <a href="debarras.html#mobilier">Recyclage mobilier</a>
+              <a href="debarras.html#locaux">Débarras locaux pro</a>
+              <a href="debarras.html#particuliers">Débarras particuliers</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="demenagement.html">Déménagement <span class="arrow">▾</span></a>
+            <div class="dropdown-menu">
+              <a href="demenagement.html#admin">Transfert administratif</a>
+              <a href="demenagement.html#industriel">Transfert industriel</a>
+              <a href="demenagement.html#particuliers">Déménagement particuliers</a>
+              <a href="demenagement.html#manutention">Manutention interne</a>
+              <a href="demenagement.html#garde">Garde meubles & archives</a>
+            </div>
+          </div>
+          <a href="mobilier.html">Mobilier de bureau</a>
+          <a href="actualites.html" class="active">Actualités</a>
+          <a href="devis.html" class="btn-nav">Devis Gratuit</a>
+        </nav>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="nav-mobile" id="navMobile">
+      <a href="index.html">Accueil</a>
+      <a href="debarras.html">Prestations de Débarras</a>
+      <a href="demenagement.html">Prestations de Déménagement</a>
+      <a href="mobilier.html">Mobilier de bureau</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="devis.html" class="btn-nav-mobile">Devis Gratuit</a>
+    </nav>
+  </header>
+
+  <div class="breadcrumb"><div class="container"><a href="index.html">Accueil</a><span>›</span>Actualités</div></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Conseils & informations</span>
+      <h1>Nos Actualités</h1>
+      <p>Conseils pratiques, obligations légales, impact éco — tout ce qu'on sait, on le partage.</p>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container actu-grid">
+
+      <!-- Liste des articles -->
+      <div class="actu-list">
+
+        <!-- ── Mai 2026 ── -->
+        <article class="actu-card fade-in">
+          <div class="actu-card-img"><img src="https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Grand nettoyage de printemps TMBO 2026" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
+          <div class="actu-card-body">
+            <div class="actu-meta">
+              <span class="actu-date">6 mai 2026</span>
+              <span class="actu-tag" style="background:#e8f5e9;color:#2e7d32;">Printemps</span>
+              <span class="actu-tag">Débarras</span>
+            </div>
+            <h2><a href="actu-6-nettoyage-printemps-2026.html">Grand nettoyage de printemps : particuliers et entreprises, c'est le moment</a></h2>
+            <p>Cave qui déborde, locaux encombrés, archives en retard… Le printemps est la saison idéale pour faire le vide et repartir léger. TMBO intervient sous 48h — et les frais de destruction d'archives sont toujours offerts.</p>
+            <a href="actu-6-nettoyage-printemps-2026.html" class="actu-read">Lire l'article →</a>
+          </div>
+        </article>
+
+        <!-- ── Janvier 2026 ── -->
+        <article class="actu-card fade-in">
+          <div class="actu-card-img"><img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Équipe souriante bonne année 2026 TMBO" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
+          <div class="actu-card-body">
+            <div class="actu-meta">
+              <span class="actu-date">2 janvier 2026</span>
+              <span class="actu-tag" style="background:#e3f2fd;color:#1565c0;">Équipe TMBO</span>
+            </div>
+            <h2><a href="actu-5-bonne-annee-2026.html">2026 : une nouvelle année, ensemble. Les vœux de l'équipe TMBO</a></h2>
+            <p>Malgré les turbulences économiques mondiales, TMBO reste debout et à vos côtés. Merci à tous nos clients, anciens et nouveaux. Voici nos engagements pour cette année qui commence — et notre message à ceux qui hésitent encore à avancer.</p>
+            <a href="actu-5-bonne-annee-2026.html" class="actu-read">Lire l'article →</a>
+          </div>
+        </article>
+
+
+        <!-- ── Juin 2025 ── -->
+        <article class="actu-card fade-in">
+          <div class="actu-card-img"><img src="https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mobilier de bureau à recycler réemploi TMBO" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
+          <div class="actu-card-body">
+            <div class="actu-meta">
+              <span class="actu-date">20 juin 2025</span>
+              <span class="actu-tag" style="background:#e8f5e9;color:#2e7d32;">Écologie</span>
+              <span class="actu-tag">DEEE</span>
+            </div>
+            <h2><a href="actu-4-debarras-eco-responsable.html">Zéro déchet, vraiment : comment TMBO valorise 100 % de ce qu'il enlève</a></h2>
+            <p>Papier broyé et recyclé en papeterie, mobilier remis en circulation, électronique démantèlé en filière agréée… En 2025, la réglementation sur les déchets professionnels s'est durcie. Voici comment TMBO répond concrètement à ces obligations — et pourquoi vos prestataires actuels ne le font peut-être pas.</p>
+            <a href="actu-4-debarras-eco-responsable.html" class="actu-read">Lire l'article →</a>
+          </div>
+        </article>
+
+        <!-- ── Mai 2025 ── -->
+
+        <!-- ── Janvier 2025 ── -->
+        <article class="actu-card fade-in">
+          <div class="actu-card-img"><img src="https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Archives en retard de destruction TMBO frais offerts" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
+          <div class="actu-card-body">
+            <div class="actu-meta">
+              <span class="actu-date">Mars 2026</span>
+              <span class="actu-tag">Archives</span>
+            </div>
+            <h2><a href="actu-1-destruction-archives-frais-offerts.html">Archives &amp; mobilier de bureau : le guide complet TMBO 2026</a></h2>
+            <p>Destruction certifiée, mobilier recyclé, délais légaux, erreurs RGPD à éviter… Le guide complet TMBO pour gérer vos archives et votre mobilier de manière responsable et conforme.</p>
+            <a href="actu-1-destruction-archives-frais-offerts.html" class="actu-read">Lire l'article →</a>
+          </div>
+        </article>
+
+        <!-- ── Mai 2023 ── -->
+
+        <!-- ── Décembre 2022 ── -->
+
+      </div>
+      <!-- Sidebar -->
+      <aside class="actu-sidebar">
+        <div class="sidebar-card">
+          <h3>Nos prestations</h3>
+          <div class="sidebar-links">
+            <a href="debarras.html#papiers">Destruction d'archives</a>
+            <a href="debarras.html#deee">Déchets électroniques</a>
+            <a href="debarras.html#mobilier">Recyclage mobilier</a>
+            <a href="demenagement.html#admin">Transfert administratif</a>
+            <a href="demenagement.html#garde">Garde meubles & archives</a>
+          </div>
+        </div>
+        <div class="sidebar-card" style="background:var(--grey-900);border-color:transparent;">
+          <h3 style="color:var(--white);border-color:var(--red);">Besoin d'un devis ?</h3>
+          <p style="color:rgba(255,255,255,.65);font-size:.9rem;margin-bottom:20px;">Réponse sous 24h, sans engagement.</p>
+          <a href="tel:+33148574744" style="display:block;text-align:center;margin-top:12px;color:rgba(255,255,255,.55);font-size:.88rem;">01 48 57 47 44</a>
+        </div>
+        <div class="sidebar-card">
+          <h3>Catégories</h3>
+          <div class="sidebar-links">
+            <a href="actu-1-destruction-archives-frais-offerts.html">Archives &amp; documents</a>
+            <a href="debarras.html">Débarras professionnel</a>
+            <a href="demenagement.html">Déménagement</a>
+            <a href="actu-1-destruction-archives-frais-offerts.html">Réglementation</a>
+            <a href="actu-1-destruction-archives-frais-offerts.html">RGPD &amp; confidentialité</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="logo_tmbo_debarras.png" alt="Logo TMBO"/>
+        <p>Débarras &amp; déménagement à Paris et en IDF depuis 1986.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/TMBO-203880733445598/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.linkedin.com/company/tmbo-93/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Débarras</h4><ul>
+        <li><a href="debarras.html#papiers">Destruction d'archives</a></li>
+        <li><a href="debarras.html#deee">Déchets électroniques</a></li>
+        <li><a href="debarras.html#mobilier">Recyclage mobilier</a></li>
+        <li><a href="debarras.html#locaux">Locaux professionnels</a></li>
+        <li><a href="debarras.html#particuliers">Logements</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Déménagement</h4><ul>
+        <li><a href="demenagement.html#admin">Transfert administratif</a></li>
+        <li><a href="demenagement.html#industriel">Transfert industriel</a></li>
+        <li><a href="demenagement.html#particuliers">Particuliers</a></li>
+        <li><a href="demenagement.html#manutention">Manutention</a></li>
+        <li><a href="demenagement.html#garde">Garde meubles &amp; archives</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Infos</h4><ul>
+        <li><a href="mobilier.html">Mobilier occasion</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="devis.html">Devis gratuit</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><div class="container">
+      <p>© <span id="year"></span> TMBO – Tous droits réservés. | Site réalisé par <a href="https://www.charonneburo.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55);text-decoration:underline;">Charonne Buro</a></p>
+      <a href="#header" class="back-top" aria-label="Haut de page">↑</a>
+    </div></div>
+  </footer>
+
+      <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Nav burger
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('navMobile');
+    if(toggle&&nav){toggle.addEventListener('click',()=>{const o=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!o));nav.classList.toggle('open');toggle.classList.toggle('active');});}
+    // Header shadow on scroll
+    window.addEventListener('scroll',()=>{const h=document.getElementById('header');if(h)h.classList.toggle('scrolled',window.scrollY>60);});
+    // Fade-in observer — OBLIGATOIRE sinon les éléments restent invisibles
+
+    // Dropdown nav : délai de fermeture pour éviter disparition trop rapide
+    document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
+      var timer;
+      dd.addEventListener('mouseenter', function() {
+        clearTimeout(timer);
+        this.querySelector('.dropdown-menu').style.opacity = '1';
+        this.querySelector('.dropdown-menu').style.pointerEvents = 'auto';
+        this.querySelector('.dropdown-menu').style.transform = 'none';
+      });
+      dd.addEventListener('mouseleave', function() {
+        var menu = this.querySelector('.dropdown-menu');
+        timer = setTimeout(function() {
+          menu.style.opacity = '';
+          menu.style.pointerEvents = '';
+          menu.style.transform = '';
+        }, 200);
+      });
+    });
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.08});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+  </script>
+  <script src="mascotte.js"></script>
+</body>
+</html>
+
+

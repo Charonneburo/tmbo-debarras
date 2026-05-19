@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vente et rachat de mobilier de bureau occasion en Île-de-France. TMBO propose des meubles de bureau reconditionnés à prix compétitifs." />
+  <title>Mobilier de Bureau – Vente & Rachat – TMBO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .mobilier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 56px; }
+    .mobilier-card {
+      background: var(--white); border-radius: 10px;
+      border: 1px solid var(--grey-200);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .mobilier-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .mobilier-card-header {
+      background: var(--grey-900); padding: 36px 36px 28px;
+      position: relative; overflow: hidden;
+    }
+    .mobilier-card-header::before {
+      content: ''; position: absolute; right: -30px; top: -30px;
+      width: 140px; height: 140px;
+      background: radial-gradient(circle, rgba(200,16,46,.35) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .mobilier-card-header .card-icon {
+      width: 56px; height: 56px; background: var(--red); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px; color: var(--white);
+    }
+    .mobilier-card-header .card-icon svg { width: 28px; height: 28px; }
+    .mobilier-card-header h2 { color: var(--white); font-size: 1.8rem; }
+    .mobilier-card-header p { color: rgba(255,255,255,.65); margin-top: 8px; font-size: .95rem; }
+    .mobilier-card-body { padding: 36px; }
+    .mobilier-card-body p { color: var(--grey-600); margin-bottom: 16px; }
+    .mobilier-card-body .check-list { margin-bottom: 28px; }
+    .categories { margin-top: 56px; }
+    .categories h2 { text-align: center; margin-bottom: 36px; }
+    .cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .cat-item {
+      background: var(--grey-100); border-radius: 8px;
+      padding: 28px 20px; text-align: center;
+      border: 1px solid var(--grey-200);
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .cat-item:hover { border-color: var(--red); background: var(--red-light); }
+    .cat-item svg { width: 36px; height: 36px; color: var(--red); margin: 0 auto 12px; display: block; }
+    .cat-item strong { display: block; font-family: var(--font-title); font-size: 1rem; font-weight: 700; }
+    .cat-item span { font-size: .82rem; color: var(--grey-400); }
+    .breadcrumb { padding: 14px 0; font-size: .85rem; color: var(--grey-400); }
+    .breadcrumb a { color: var(--grey-400); } .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); margin: 0 6px; }
+    @media (max-width: 768px) { .mobilier-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <div class="header-top-contact">
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Centre d'activités Leclerc Étoile, 28 Av. de la Division Leclerc, 93000 Bobigny</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.18 2 2 0 013.97 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> <a href="tel:+33148574744">01 48 57 47 44</a></span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg> <a href="mailto:contact@tmbo.fr">contact@tmbo.fr</a></span>
+        </div>
+        <div class="header-top-social">
+          <a href="https://www.facebook.com/TMBO-203880733445598/" target="_blank" rel="noopener" aria-label="Facebook TMBO">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/tmbo-93/" target="_blank" rel="noopener" aria-label="LinkedIn TMBO">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+</div>
+    </div>
+    <div class="header-main">
+      <div class="container header-main-inner">
+        <a href="index.html" class="logo"><img src="logo_tmbo_debarras.png"></a>
+        <nav class="nav-desktop" aria-label="Navigation principale">
+          <a href="index.html">Accueil</a>
+          <div class="nav-dropdown">
+            <a href="debarras.html">Débarras <span class="arrow">▾</span></a>
+            <div class="dropdown-menu">
+              <a href="debarras.html#papiers">Destruction d'archives</a>
+              <a href="debarras.html#deee">Déchets électroniques</a>
+              <a href="debarras.html#mobilier">Recyclage mobilier</a>
+              <a href="debarras.html#locaux">Débarras locaux pro</a>
+              <a href="debarras.html#particuliers">Débarras particuliers</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="demenagement.html">Déménagement <span class="arrow">▾</span></a>
+            <div class="dropdown-menu">
+              <a href="demenagement.html#admin">Transfert administratif</a>
+              <a href="demenagement.html#industriel">Transfert industriel</a>
+              <a href="demenagement.html#particuliers">Déménagement particuliers</a>
+              <a href="demenagement.html#manutention">Manutention interne</a>
+              <a href="demenagement.html#garde">Garde meubles & archives</a>
+            </div>
+          </div>
+          <a href="mobilier.html" class="active">Mobilier de bureau</a>
+          <a href="actualites.html">Actualités</a>
+          <a href="devis.html" class="btn-nav">Devis Gratuit</a>
+        </nav>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="nav-mobile" id="navMobile">
+      <a href="index.html">Accueil</a>
+      <a href="debarras.html">Prestations de Débarras</a>
+      <a href="demenagement.html">Prestations de Déménagement</a>
+      <a href="mobilier.html">Mobilier de bureau</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="devis.html" class="btn-nav-mobile">Devis Gratuit</a>
+    </nav>
+  </header>
+
+  <div class="breadcrumb"><div class="container"><a href="index.html">Accueil</a><span>›</span>Mobilier de bureau</div></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Occasion & reconditionné</span>
+      <h1>Mobilier de Bureau</h1>
+      <p>Mobilier de bureau reconditionné à prix compétitif. Rachat de vos meubles usagés. Économique et éco-responsable.</p>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container">
+      <div class="mobilier-grid">
+
+        <!-- VENTE -->
+        <div class="mobilier-card fade-in">
+          <div class="mobilier-card-header">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop&q=80" alt="Mobilier de bureau reconditionné à vendre" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18;border-radius:10px 10px 0 0;" />
+            <div style="position:relative;z-index:1;">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            </div>
+            <h2>Vente de mobilier de bureau</h2>
+            <p>Du mobilier de qualité, reconditionné et testé, à des prix bien inférieurs au neuf.</p>
+            </div><!-- /relative -->
+          </div>
+          <div class="mobilier-card-body">
+            <p>Grâce à nos opérations de débarras et déménagement d'entreprises, nous récupérons régulièrement du mobilier de bureau en bon état que nous remettons en vente après contrôle et nettoyage.</p>
+            <p>C'est une opportunité pour équiper vos bureaux à moindre coût tout en adoptant une démarche responsable.</p>
+            <ul class="check-list">
+              <li>Bureaux, sièges ergonomiques, armoires</li>
+              <li>Tables de réunion, caissons, rangements</li>
+              <li>Cloisons, locker, vestiaires</li>
+              <li>Stock variable selon les arrivages</li>
+              <li>Livraison possible en IDF</li>
+              <li>Prix négociables pour grosses quantités</li>
+            </ul>
+            <a href="devis.html?sujet=achat-mobilier" class="btn-primary">Nous contacter pour le stock disponible</a>
+          </div>
+        </div>
+
+        <!-- RACHAT -->
+        <div class="mobilier-card fade-in">
+          <div class="mobilier-card-header">
+            <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Rachat mobilier de bureau professionnel" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18;border-radius:10px 10px 0 0;" />
+            <div style="position:relative;z-index:1;">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+            </div>
+            <h2>Rachat de mobilier de bureau</h2>
+            <p>Vous avez du mobilier à évacuer ? On vous en propose le rachat directement sur site.</p>
+            </div>
+          <div class="mobilier-card-body">
+            <p>Lors d'un déménagement, d'une restructuration ou d'une fermeture, vous avez souvent des meubles en bon état dont vous n'avez plus l'usage. TMBO vous propose de les racheter directement, ce qui réduit votre facture de débarras.</p>
+            <p>Une solution simple, rapide et avantageuse pour les deux parties.</p>
+            <ul class="check-list">
+              <li>Estimation gratuite sur photos ou sur site</li>
+              <li>Rachat de bureaux, sièges, armoires, cloisons…</li>
+              <li>Enlèvement inclus dans la prestation</li>
+              <li>Déduction possible du coût de débarras</li>
+              <li>Réponse rapide sous 48h</li>
+              <li>Toute quantité acceptée</li>
+            </ul>
+            <a href="devis.html?sujet=rachat-mobilier" class="btn-primary">Demander une estimation gratuite</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Catégories -->
+      <div class="categories fade-in">
+        <span class="section-label" style="display:block;text-align:center;">Ce que nous traitons</span>
+        <h2>Types de mobilier</h2>
+        <div class="cat-grid">
+          <div class="cat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            <strong>Bureaux</strong><span>Droits, angles, assis-debout</span>
+          </div>
+          <div class="cat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+            <strong>Sièges</strong><span>Ergonomiques, visiteurs, direction</span>
+          </div>
+          <div class="cat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg>
+            <strong>Armoires</strong><span>Portes battantes, rideaux, classeurs</span>
+          </div>
+          <div class="cat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+            <strong>Caissons</strong><span>Mobiles, fixes, à tiroirs</span>
+          </div>
+          <div class="cat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+            <strong>Tables réunion</strong><span>Toutes tailles et formes</span>
+          </div>
+          <div class="cat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            <strong>Rangements</strong><span>Étagères, vestiaires, lockers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="logo_tmbo_debarras.png" alt="Logo TMBO"/>
+        <p>Débarras &amp; déménagement à Paris et en IDF depuis 1986.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/TMBO-203880733445598/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.linkedin.com/company/tmbo-93/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Débarras</h4><ul>
+        <li><a href="debarras.html#papiers">Destruction d'archives</a></li>
+        <li><a href="debarras.html#deee">Déchets électroniques</a></li>
+        <li><a href="debarras.html#mobilier">Recyclage mobilier</a></li>
+        <li><a href="debarras.html#locaux">Locaux professionnels</a></li>
+        <li><a href="debarras.html#particuliers">Logements</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Déménagement</h4><ul>
+        <li><a href="demenagement.html#admin">Transfert administratif</a></li>
+        <li><a href="demenagement.html#industriel">Transfert industriel</a></li>
+        <li><a href="demenagement.html#particuliers">Particuliers</a></li>
+        <li><a href="demenagement.html#manutention">Manutention</a></li>
+        <li><a href="demenagement.html#garde">Garde meubles &amp; archives</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Infos</h4><ul>
+        <li><a href="mobilier.html">Mobilier occasion</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="devis.html">Devis gratuit</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><div class="container">
+      <p>© <span id="year"></span> TMBO – Tous droits réservés. | Site réalisé par <a href="https://www.charonneburo.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55);text-decoration:underline;">Charonne Buro</a></p>
+      <a href="#header" class="back-top" aria-label="Haut de page">↑</a>
+    </div></div>
+  </footer>
+
+      <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Nav burger
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('navMobile');
+    if(toggle&&nav){toggle.addEventListener('click',()=>{const o=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!o));nav.classList.toggle('open');toggle.classList.toggle('active');});}
+    // Header shadow on scroll
+    window.addEventListener('scroll',()=>{const h=document.getElementById('header');if(h)h.classList.toggle('scrolled',window.scrollY>60);});
+    // Fade-in observer — OBLIGATOIRE sinon les éléments restent invisibles
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.08});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+  </script>
+  <script src="mascotte.js"></script>
+</body>
+</html>
+
+

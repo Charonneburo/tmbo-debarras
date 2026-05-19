@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prestations de débarras TMBO : destruction d'archives, DEEE, recyclage mobilier, débarras locaux professionnels et particuliers en Île-de-France." />
+  <title>Prestations de Débarras – TMBO Île-de-France</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .prestation-block { padding: 90px 0; }
+    .prestation-block:nth-child(even) { background: var(--grey-100); }
+    .prestation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .prestation-block:nth-child(even) .prestation-grid { direction: rtl; }
+    .prestation-block:nth-child(even) .prestation-content { direction: ltr; }
+    .prestation-block:nth-child(even) .prestation-visual { direction: ltr; }
+    .prestation-visual { position: relative; }
+    .prestation-visual img { width: 100%; border-radius: 8px; box-shadow: var(--shadow-lg); object-fit: cover; aspect-ratio: 4/3; }
+    .prestation-visual .visual-badge {
+      position: absolute; bottom: -18px; left: 24px;
+      background: var(--red); color: var(--white);
+      padding: 12px 22px; border-radius: var(--radius);
+      font-family: var(--font-title); font-weight: 700; font-size: .92rem;
+      letter-spacing: .06em; text-transform: uppercase;
+      box-shadow: var(--shadow-md);
+    }
+    .prestation-content h2 { margin-bottom: 18px; }
+    .prestation-content p { color: var(--grey-600); margin-bottom: 16px; }
+    .prestation-content .check-list { margin: 22px 0 30px; }
+    .breadcrumb { padding: 14px 0; font-size: .85rem; color: var(--grey-400); }
+    .breadcrumb a { color: var(--grey-400); } .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); margin: 0 6px; }
+    @media (max-width: 900px) {
+      .prestation-grid { grid-template-columns: 1fr; direction: ltr !important; gap: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <div class="header-top-contact">
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Centre d'activités Leclerc Étoile, 28 Av. de la Division Leclerc, 93000 Bobigny</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.18 2 2 0 013.97 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> <a href="tel:+33148574744">01 48 57 47 44</a></span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg> <a href="mailto:contact@tmbo.fr">contact@tmbo.fr</a></span>
+        </div>
+        <div class="header-top-social">
+          <a href="https://www.facebook.com/TMBO-203880733445598/" target="_blank" rel="noopener" aria-label="Facebook TMBO">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/tmbo-93/" target="_blank" rel="noopener" aria-label="LinkedIn TMBO">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+</div>
+    </div>
+    <div class="header-main">
+      <div class="container header-main-inner">
+        <a href="index.html" class="logo"><img src="logo_tmbo_debarras.png"></a>
+        <nav class="nav-desktop" aria-label="Navigation principale">
+          <a href="index.html">Accueil</a>
+          <div class="nav-dropdown">
+            <a href="debarras.html" class="active">Débarras <span class="arrow">▾</span></a>
+            <div class="dropdown-menu">
+              <a href="#papiers">Destruction d'archives</a>
+              <a href="#deee">Déchets électroniques (DEEE)</a>
+              <a href="#mobilier">Recyclage mobilier de bureau</a>
+              <a href="#locaux">Débarras locaux pro (DIB)</a>
+              <a href="#particuliers">Débarras particuliers</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="demenagement.html">Déménagement <span class="arrow">▾</span></a>
+            <div class="dropdown-menu">
+              <a href="demenagement.html#admin">Transfert administratif</a>
+              <a href="demenagement.html#industriel">Transfert industriel</a>
+              <a href="demenagement.html#particuliers">Déménagement particuliers</a>
+              <a href="demenagement.html#manutention">Manutention interne</a>
+              <a href="demenagement.html#garde">Garde meubles & archives</a>
+            </div>
+          </div>
+          <a href="mobilier.html">Mobilier de bureau</a>
+          <a href="actualites.html">Actualités</a>
+          <a href="devis.html" class="btn-nav">Devis Gratuit</a>
+        </nav>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="nav-mobile" id="navMobile">
+      <a href="index.html">Accueil</a>
+      <a href="debarras.html">Prestations de Débarras</a>
+      <a href="demenagement.html">Prestations de Déménagement</a>
+      <a href="mobilier.html">Mobilier de bureau</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="devis.html" class="btn-nav-mobile">Devis Gratuit</a>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb"><div class="container"><a href="index.html">Accueil</a><span>›</span>Prestations de Débarras</div></div>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Paris & Île-de-France</span>
+      <h1>Prestations de Débarras</h1>
+      <p>Destruction certifiée, recyclage, débarras de locaux — tout ce qu'il faut pour repartir à zéro, proprement.</p>
+    </div>
+  </section>
+
+  <!-- ===== DESTRUCTION D'ARCHIVES ===== -->
+  <section class="prestation-block" id="papiers">
+    <div class="container prestation-grid">
+      <div class="prestation-visual fade-in">
+        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?w=800&auto=format&fit=crop&q=80" alt="Débarras de papiers et destruction d'archives" loading="lazy" />
+        <div class="visual-badge">Certificat fourni</div>
+      </div>
+      <div class="prestation-content fade-in">
+        <span class="section-label">Confidentiel garanti</span>
+        <h2>Destruction d'archives & débarras de papiers</h2>
+        <p>La gestion et la destruction de vos archives confidentielles nécessitent une expertise rigoureuse. TMBO assure l'évacuation sécurisée de tous vos documents — quelle que soit la quantité — et leur destruction en usine spécialisée dans le strict respect de la confidentialité.</p>
+        <p>Chaque opération est tracée et nous vous remettons un <strong>certificat officiel de mise en destruction</strong>, indispensable pour vos obligations légales et votre conformité RGPD.</p>
+        <ul class="check-list">
+          <li>Collecte sur site à Paris et en IDF</li>
+          <li>Transport sécurisé et traçable</li>
+          <li>Destruction en usine spécialisée agréée</li>
+          <li>Certificat de destruction remis systématiquement</li>
+          <li>Recyclage des papiers après broyage</li>
+          <li>Intervention pour toutes quantités (cartons, palettes, rolls…)</li>
+                <a href="devis.html" class="btn-primary" style="margin-top:8px;display:inline-flex;align-items:center;gap:8px;">Demander un devis &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEEE ===== -->
+  <section class="prestation-block" id="deee">
+    <div class="container prestation-grid">
+      <div class="prestation-visual fade-in">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80" alt="Débarras DEEE déchets électroniques" loading="lazy" />
+        <div class="visual-badge">Normes DEEE</div>
+      </div>
+      <div class="prestation-content fade-in">
+        <span class="section-label">Éco-responsable</span>
+        <h2>Déchets électroniques (DEEE)</h2>
+        <p>Ordinateurs, serveurs, imprimantes, copieurs, câbles, téléphones… L'évacuation des Déchets d'Équipements Électriques et Électroniques est encadrée par une réglementation stricte. TMBO prend en charge la collecte, le transport et le traitement de vos équipements dans le respect total des normes en vigueur.</p>
+        <p>Nous intervenons pour les entreprises, administrations et collectivités sur Paris et toute l'Île-de-France, quelle que soit la volumétrie.</p>
+        <ul class="check-list">
+          <li>Collecte sur site de tous types d'équipements électroniques</li>
+          <li>Tri et valorisation selon les filières agréées</li>
+          <li>Conformité réglementaire DEEE garantie</li>
+          <li>Document de suivi fourni</li>
+          <li>Intervention pour les pros, collectivités et particuliers</li>
+                <a href="devis.html" class="btn-primary" style="margin-top:8px;display:inline-flex;align-items:center;gap:8px;">Demander un devis &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RECYCLAGE MOBILIER ===== -->
+  <section class="prestation-block" id="mobilier">
+    <div class="container prestation-grid">
+      <div class="prestation-visual fade-in">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop&q=80" alt="Recyclage mobilier de bureau" loading="lazy" />
+        <div class="visual-badge">Valorisé au maximum</div>
+      </div>
+      <div class="prestation-content fade-in">
+        <span class="section-label">Recyclage & valorisation</span>
+        <h2>Recyclage de mobilier de bureau</h2>
+        <p>Bureaux, sièges, armoires, cloisons, tables de réunion… Lors d'un déménagement ou d'une rénovation, la gestion du mobilier usagé est souvent un casse-tête. TMBO s'occupe de tout : enlèvement, tri, et orientation vers les filières de réemploi ou de recyclage les plus adaptées.</p>
+        <p>Notre approche éco-responsable vise à maximiser la seconde vie de votre mobilier et à minimiser les volumes mis en décharge.</p>
+        <ul class="check-list">
+          <li>Enlèvement rapide sur Paris et IDF</li>
+          <li>Tri sélectif selon l'état du mobilier</li>
+          <li>Orientation vers le réemploi en priorité</li>
+          <li>Recyclage des matières non récupérables</li>
+          <li>Prestation combinable avec déménagement ou débarras</li>
+                <a href="devis.html" class="btn-primary" style="margin-top:8px;display:inline-flex;align-items:center;gap:8px;">Demander un devis &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCAUX PRO ===== -->
+  <section class="prestation-block" id="locaux">
+    <div class="container prestation-grid">
+      <div class="prestation-visual fade-in">
+        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&auto=format&fit=crop&q=80" alt="Débarras de locaux professionnels DIB" loading="lazy" />
+        <div class="visual-badge">Clé en main</div>
+      </div>
+      <div class="prestation-content fade-in">
+        <span class="section-label">Professionnels & collectivités</span>
+        <h2>Débarras de locaux professionnels (DIB)</h2>
+        <p>Bureaux, entrepôts, usines, commerces, administrations… Lors d'une fermeture, d'un déménagement ou d'une restructuration, TMBO prend en charge le débarras complet de vos locaux professionnels.</p>
+        <p>Nous gérons l'ensemble des Déchets Industriels Banals (DIB) : mobilier, archives, encombrants, équipements divers — avec un tri rigoureux et un acheminement vers les filières adaptées.</p>
+        <ul class="check-list">
+          <li>Débarras complet ou partiel selon vos besoins</li>
+          <li>Gestion de tous types de déchets (DIB)</li>
+          <li>Rapidité d'exécution, même en urgence</li>
+          <li>Locaux rendus propres et vides</li>
+          <li>Intervention sur Paris et toute l'IDF</li>
+          <li>Entreprises, administrations, collectivités</li>
+                <a href="devis.html" class="btn-primary" style="margin-top:8px;display:inline-flex;align-items:center;gap:8px;">Demander un devis &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARTICULIERS ===== -->
+  <section class="prestation-block" id="particuliers">
+    <div class="container prestation-grid">
+      <div class="prestation-visual fade-in">
+        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop&q=80" alt="Débarras de logements particuliers" loading="lazy" />
+        <div class="visual-badge">Particuliers bienvenus</div>
+      </div>
+      <div class="prestation-content fade-in">
+        <span class="section-label">Particuliers</span>
+        <h2>Débarras de logements pour particuliers</h2>
+        <p>Succession, déménagement, encombrement… TMBO intervient également chez les particuliers pour le débarras complet ou partiel de maisons, appartements, caves et garages.</p>
+        <p>Notre équipe est à l'écoute et s'adapte à chaque situation avec discrétion et professionnalisme. Nous gérons l'évacuation, le tri et le recyclage de l'ensemble de vos encombrants.</p>
+        <ul class="check-list">
+          <li>Maisons, appartements, caves, garages, pavillons</li>
+          <li>Débarras complet ou partiel</li>
+          <li>Tri et valorisation des objets récupérables</li>
+          <li>Discrétion et respect du logement</li>
+          <li>Intervention rapide sur Paris et IDF</li>
+                <a href="devis.html" class="btn-primary" style="margin-top:8px;display:inline-flex;align-items:center;gap:8px;">Demander un devis &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="logo_tmbo_debarras.png" alt="Logo TMBO"/>
+        <p>Débarras &amp; déménagement à Paris et en IDF depuis 1986.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/TMBO-203880733445598/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.linkedin.com/company/tmbo-93/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Débarras</h4><ul>
+        <li><a href="debarras.html#papiers">Destruction d'archives</a></li>
+        <li><a href="debarras.html#deee">Déchets électroniques</a></li>
+        <li><a href="debarras.html#mobilier">Recyclage mobilier</a></li>
+        <li><a href="debarras.html#locaux">Locaux professionnels</a></li>
+        <li><a href="debarras.html#particuliers">Logements</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Déménagement</h4><ul>
+        <li><a href="demenagement.html#admin">Transfert administratif</a></li>
+        <li><a href="demenagement.html#industriel">Transfert industriel</a></li>
+        <li><a href="demenagement.html#particuliers">Particuliers</a></li>
+        <li><a href="demenagement.html#manutention">Manutention</a></li>
+        <li><a href="demenagement.html#garde">Garde meubles &amp; archives</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Infos</h4><ul>
+        <li><a href="mobilier.html">Mobilier occasion</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="devis.html">Devis gratuit</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><div class="container">
+      <p>© <span id="year"></span> TMBO – Tous droits réservés. | Site réalisé par <a href="https://www.charonneburo.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55);text-decoration:underline;">Charonne Buro</a></p>
+      <a href="#header" class="back-top" aria-label="Haut de page">↑</a>
+    </div></div>
+  </footer>
+
+      <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Nav burger
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('navMobile');
+    if(toggle&&nav){toggle.addEventListener('click',()=>{const o=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!o));nav.classList.toggle('open');toggle.classList.toggle('active');});}
+    // Header shadow on scroll
+    window.addEventListener('scroll',()=>{const h=document.getElementById('header');if(h)h.classList.toggle('scrolled',window.scrollY>60);});
+    // Fade-in observer — OBLIGATOIRE sinon les éléments restent invisibles
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.08});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+  </script>
+  <script src="mascotte.js"></script>
+</body>
+</html>
+
+
