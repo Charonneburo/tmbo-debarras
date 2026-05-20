@@ -1,6 +1,6 @@
 /**
  * TMBO – Tom le chatbot
- * Image : tom.png (cercle rouge, t-shirt TMBO, laptop)
+ * Image : img/tom.png (cercle rouge, t-shirt TMBO, laptop)
  * Envoi : Web3Forms · Anti-spam : honeypot + captcha maths
  */
 (function () {
@@ -130,7 +130,7 @@ const css = `
   #tsend:hover { background:#a00c24; transform:scale(1.08); }
   #tsend svg { width:14px; height:14px; }
 
-  /* FAB – image tom.png sans rognage */
+  /* FAB – image img/tom.png sans rognage */
   #tfab { position:relative; pointer-events:auto; cursor:pointer;
     width:80px; height:auto; }
   #tfab .av {
@@ -171,7 +171,7 @@ wrap.id = 'tw';
 wrap.innerHTML = `
 <div id="tc" role="dialog" aria-label="Chat Tom TMBO" aria-hidden="true">
   <div id="th">
-    <img class="av-head" src="tom.png" alt="Tom TMBO" draggable="false"/>
+    <img class="av-head" src="img/tom.png" alt="Tom TMBO" draggable="false"/>
     <div id="thi">
       <strong>Tom — TMBO</strong>
       <span>Assistant déménagement &amp; débarras</span>
@@ -223,7 +223,7 @@ wrap.innerHTML = `
 
 <div id="tfab" role="button" tabindex="0" aria-label="Chat avec Tom TMBO">
   <div id="tbadge"></div>
-  <img class="av" src="tom.png" alt="Tom TMBO" draggable="false"/>
+  <img class="av" src="img/tom.png" alt="Tom TMBO" draggable="false"/>
 </div>`;
 document.body.appendChild(wrap);
 
