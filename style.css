@@ -201,24 +201,17 @@ h4 { font-size: 1rem; font-weight: 700; letter-spacing: .06em; text-transform: u
   box-shadow: var(--shadow-lg);
   min-width: 240px; padding: 8px 0;
   opacity: 0; pointer-events: none; transform: translateY(8px);
-  transition: opacity var(--transition), transform var(--transition);
+  transition: opacity .28s ease .1s, transform .28s ease .1s, visibility .28s ease .1s;
   border-top: 3px solid var(--red);
 }
-.nav-dropdown:hover .dropdown-menu { opacity: 1; pointer-events: auto; transform: none; }
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu { opacity: 1; pointer-events: auto; transform: none; }
+/* Zone tampon invisible pour éviter fermeture au survol */
+.dropdown-menu::before { content:''; position:absolute; top:-14px; left:0; right:0; height:14px; background:transparent; }
 .dropdown-menu a {
   display: block; padding: 10px 20px;
   font-size: .92rem; color: var(--grey-800);
-  transition: background var(--transition), color var(--transition);
-}
-.dropdown-menu a:hover { background: var(--grey-100); color: var(--red); }
-
-.nav-toggle {
-  display: none; flex-direction: column; gap: 5px; padding: 8px;
-  background: none; border: none; cursor: pointer; border-radius: var(--radius);
-}
-.nav-toggle span {
-  display: block; width: 24px; height: 2px; background: var(--grey-900);
-  transition: transform .3s ease, opacity .3s ease;
+  transition: opacity .28s ease .1s, transform .28s ease .1s, visibility .28s ease .1s;
 }
 .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-toggle.active span:nth-child(2) { opacity: 0; }
