@@ -73,7 +73,7 @@
     <div class="header-main">
       <div class="container header-main-inner">
         <a href="index.html" class="logo">
-          <img src="logo_tmbo_debarras.png">
+          <img src="img/logo_tmbo_debarras.png">
         </a>
         <nav class="nav-desktop" aria-label="Navigation principale">
           <a href="index.html">Accueil</a>
@@ -129,7 +129,7 @@
   <section class="visuel-section">
     <div class="container">
       <img
-        src="tmbo-visuel.png"
+        src="img/tmbo-visuel.png"
         alt="TMBO – Débarras, Manutention, Garde Meuble, Vente Mobilier, Évacuation, Mise en Destruction Sécurisée des Archives – Frais de mise en traitement offerts"
         class="visuel-tmbo"
         loading="eager"
@@ -329,6 +329,25 @@
     // Header shadow on scroll
     window.addEventListener('scroll',()=>{const h=document.getElementById('header');if(h)h.classList.toggle('scrolled',window.scrollY>60);});
     // Fade-in observer — OBLIGATOIRE sinon les éléments restent invisibles
+
+    // Dropdown nav : délai de fermeture pour éviter disparition trop rapide
+    document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
+      var timer;
+      dd.addEventListener('mouseenter', function() {
+        clearTimeout(timer);
+        this.querySelector('.dropdown-menu').style.opacity = '1';
+        this.querySelector('.dropdown-menu').style.pointerEvents = 'auto';
+        this.querySelector('.dropdown-menu').style.transform = 'none';
+      });
+      dd.addEventListener('mouseleave', function() {
+        var menu = this.querySelector('.dropdown-menu');
+        timer = setTimeout(function() {
+          menu.style.opacity = '';
+          menu.style.pointerEvents = '';
+          menu.style.transform = '';
+        }, 200);
+      });
+    });
     const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.08});
     document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
   </script>
