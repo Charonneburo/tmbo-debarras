@@ -147,8 +147,8 @@ h4 { font-size: 1rem; font-weight: 700; letter-spacing: .06em; text-transform: u
 .header-top {
   background: var(--grey-900);
   color: #ffffff;
-  font-size: .8rem;
-  padding: 7px 0;
+  font-size: .72rem;
+  padding: 3px 0;
 }
 .header-top-inner {
   display: flex; align-items: center; gap: 24px;
@@ -158,13 +158,13 @@ h4 { font-size: 1rem; font-weight: 700; letter-spacing: .06em; text-transform: u
 .header-top-inner .header-top-social { display: flex; align-items: center; gap: 10px; margin-left: auto; }
 .header-top-inner .header-top-social a {
   display: flex; align-items: center; justify-content: center;
-  width: 26px; height: 26px; border-radius: 50%;
+  width: 20px; height: 20px; border-radius: 50%;
   background: rgba(255,255,255,.15);
   color: #ffffff;
   transition: background var(--transition), color var(--transition);
 }
 .header-top-inner .header-top-social a:hover { background: var(--red); color: var(--white); }
-.header-top-inner .header-top-social svg { width: 13px; height: 13px; }
+.header-top-inner .header-top-social svg { width: 10px; height: 10px; }
 .header-top-inner span { display: flex; align-items: center; gap: 6px; color: #ffffff; }
 .header-top-inner a { color: #ffffff; transition: color var(--transition); }
 .header-top-inner a:hover { color: rgba(255,255,255,.75); }
