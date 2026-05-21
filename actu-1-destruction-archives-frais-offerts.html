@@ -64,6 +64,13 @@
     .breadcrumb a { color:var(--grey-400); } .breadcrumb a:hover { color:var(--red); }
     .breadcrumb span { color:var(--red); margin:0 6px; }
     @media(max-width:960px){ .article-layout{grid-template-columns:1fr;} .article-sidebar{position:static;} .erreur-block{flex-direction:column;gap:12px;} }
+
+    /* Lightbox */
+    .lightbox-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.88); z-index:9999; align-items:center; justify-content:center; padding:20px; }
+    .lightbox-overlay.active { display:flex; }
+    .lightbox-overlay img { max-width:90vw; max-height:90vh; border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,.6); object-fit:contain; }
+    .lightbox-close { position:absolute; top:18px; right:24px; color:#fff; font-size:2rem; cursor:pointer; line-height:1; background:none; border:none; opacity:.8; transition:opacity .2s; }
+    .lightbox-close:hover { opacity:1; }
   </style>
 </head>
 <body>
@@ -127,9 +134,9 @@
       <h2>Le processus TMBO en 6 étapes</h2>
       <p>De la collecte sur site jusqu'au certificat officiel — voici exactement comment TMBO gère la destruction de vos archives, de A à Z.</p>
 
-      <img class="article-infog" src="img/archives-processus.png"
+      <img class="article-infog lightbox-trigger" src="img/archives-processus.png"
         alt="Processus TMBO destruction archives en 6 étapes : extraction, chargement, transport, destruction, certificat, recyclage"
-        loading="eager" />
+        loading="eager" style="cursor:zoom-in;" />
 
       <p>Ce processus garantit une <strong>traçabilité complète</strong> de vos documents, de leur sortie de vos locaux jusqu'à leur destruction certifiée. Aucun document ne transite par un espace non sécurisé. Chaque intervention se conclut par la remise d'un <strong>certificat officiel de destruction</strong> — indispensable pour votre conformité RGPD et vos audits.</p>
 
@@ -322,5 +329,27 @@
     document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
   </script>
   <script src="mascotte.js"></script>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">✕</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+  <script>
+    const overlay = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.lightbox-trigger').forEach(img => {
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() { overlay.classList.remove('active'); document.body.style.overflow = ''; }
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', e => { if(e.target === overlay) closeLightbox(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+  </script>
 </body>
 </html>
