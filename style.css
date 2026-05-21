@@ -570,8 +570,7 @@ h4 { font-size: 1rem; font-weight: 700; letter-spacing: .06em; text-transform: u
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .nav-desktop { display: none; }
-  .nav-toggle { display: flex; }
+  /* nav-desktop et nav-toggle gérés dans le patch mobile ci-dessous */
 
   .hero-inner { padding-top: 60px; padding-bottom: 60px; }
   .hero-badges { flex-direction: row; }
@@ -592,12 +591,153 @@ h4 { font-size: 1rem; font-weight: 700; letter-spacing: .06em; text-transform: u
 @media (max-width: 600px) {
   .section-pad { padding: 60px 0; }
   .hero-badges { display: none; }
-  .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .cta-inner { text-align: center; justify-content: center; }
   .header-top { display: none; }
   .stats-grid { flex-direction: column; }
   .stat-sep { width: 64px; height: 1px; }
   .clients-bar .container { flex-direction: column; gap: 12px; }
-  .form-card { padding: 28px 20px; }
+  /* form-row et form-card gérés dans le patch mobile ci-dessous */
+}
+
+/* ================================================
+   PATCH RESPONSIVE MOBILE — Mai 2026
+   Cibles : burger menu, tap targets, layout mobile
+   ================================================ */
+
+/* ===== BURGER BUTTON ===== */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: background var(--transition);
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-toggle:hover,
+.nav-toggle:focus-visible { background: var(--grey-100); outline: none; }
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--grey-900);
+  border-radius: 2px;
+  transition: transform .28s ease, opacity .2s ease;
+  pointer-events: none;
+}
+
+/* ===== BOUTONS — tap targets min 44px ===== */
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+.btn-white {
+  min-height: 44px;
+}
+.btn-nav-mobile {
+  min-height: 48px;
+  padding: 14px 24px;
+  font-size: 1rem;
+  letter-spacing: .06em;
+  border-radius: var(--radius);
+  margin: 8px 16px 4px;
+}
+
+/* ===== NAV MOBILE — améliorée ===== */
+.nav-mobile a:not(.btn-nav-mobile) {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  font-size: 1.05rem;
+}
+
+/* ===== HEADER-TOP : masquer tôt sur petits écrans ===== */
+@media (max-width: 768px) {
+  .header-top { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-desktop { display: none; }
+}
+
+/* ===== BREAKPOINT 480px ===== */
+@media (max-width: 480px) {
+  .logo img { height: 64px; }
+
+  /* Hero */
+  .hero { min-height: auto; }
+  .hero-inner { padding-top: 40px; padding-bottom: 40px; gap: 28px; }
+  .hero-actions { flex-direction: column; gap: 10px; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary,
+  .hero-actions .btn-outline,
+  .hero-actions .btn-white {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Sections */
+  .section-pad { padding: 48px 0; }
+  .container { padding: 0 16px; }
+
+  /* Cards de services */
+  .services-grid { grid-template-columns: 1fr; }
+
+  /* Stats */
+  .stat { padding: 16px 20px; }
+  .stat-num { font-size: 2rem; }
+
+  /* Formulaire */
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .form-card { padding: 24px 16px; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px; /* évite le zoom auto sur iOS */
+    padding: 13px 14px;
+    min-height: 44px;
+  }
+  .form-submit { min-height: 52px; font-size: 1rem; }
+
+  /* CTA */
+  .cta-actions { flex-direction: column; width: 100%; }
+  .cta-actions .btn-primary,
+  .cta-actions .btn-secondary,
+  .cta-actions .btn-white,
+  .cta-actions .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom .container { flex-direction: column; gap: 12px; text-align: center; }
+  .footer-brand { grid-column: auto; }
+
+  /* Map */
+  .map-embed iframe { height: 260px; }
+
+  /* Page hero (mentions légales etc.) */
+  .page-hero { padding: 48px 0; }
+}
+
+/* ===== BREAKPOINT 360px (très petits phones) ===== */
+@media (max-width: 360px) {
+  .logo img { height: 52px; }
+  .container { padding: 0 12px; }
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline,
+  .btn-white,
+  .btn-nav-mobile {
+    padding: 13px 18px;
+    font-size: .9rem;
+  }
 }
