@@ -10,7 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .article-layout { display: grid; grid-template-columns: 1fr 320px; gap: 64px; align-items: start; padding: 72px 0; }
+    .article-layout { display: grid !important; grid-template-columns: 1fr 320px !important; gap: 64px; align-items: start; padding: 72px 0; }
+    .article-body { min-width: 0; }
+    .article-sidebar { min-width: 0; }
     .article-body h2 { font-size: 1.6rem; margin: 44px 0 14px; color: var(--grey-900); }
     .article-body h3 { font-size: 1.15rem; margin: 26px 0 10px; color: var(--red); }
     .article-body p { color: var(--grey-600); margin-bottom: 18px; line-height: 1.85; }
