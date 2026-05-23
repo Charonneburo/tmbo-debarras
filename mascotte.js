@@ -16,11 +16,12 @@ const css = `
   /* Fenêtre chat */
   #tc { width:340px; background:#fff; border-radius:16px;
     box-shadow:0 8px 32px rgba(60,60,59,.22); border:1.5px solid #e5e5e4;
-    display:flex; flex-direction:column; overflow:hidden; pointer-events:auto;
+    display:flex; flex-direction:column; overflow:hidden; pointer-events:none;
     opacity:0; transform:scale(.93) translateY(14px); max-height:520px;
     transform-origin:bottom right;
     transition:opacity .28s ease,transform .28s cubic-bezier(.34,1.4,.64,1); }
-  #tc.open { opacity:1; transform:scale(1) translateY(0); }
+  #tc.open { opacity:1; transform:scale(1) translateY(0);; pointer-events:auto; }
+That's it — change pointer-events:auto → pointer-events:none on #tc, and add pointer-events:auto to #tc.open. }
 
   /* En-tête */
   #th { background:#3c3c3b; padding:10px 12px; display:flex; align-items:center;
