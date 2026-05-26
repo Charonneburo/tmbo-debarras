@@ -37,13 +37,6 @@
     .breadcrumb a { color:var(--grey-400); } .breadcrumb a:hover { color:var(--red); }
     .breadcrumb span { color:var(--red); margin:0 6px; }
     @media(max-width:960px){ .article-layout{grid-template-columns:1fr;} .article-sidebar{position:static;} }
-
-    /* Lightbox */
-    .lightbox-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.88); z-index:9999; align-items:center; justify-content:center; padding:20px; }
-    .lightbox-overlay.active { display:flex; }
-    .lightbox-overlay img { max-width:90vw; max-height:90vh; border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,.6); object-fit:contain; }
-    .lightbox-close { position:absolute; top:18px; right:24px; color:#fff; font-size:2rem; cursor:pointer; line-height:1; background:none; border:none; opacity:.8; transition:opacity .2s; }
-    .lightbox-close:hover { opacity:1; }
   </style>
 </head>
 <body>
@@ -92,7 +85,7 @@
       </div>
       <h1>2026 : une nouvelle année, ensemble.</h1>
 
-      <img class="article-hero-img lightbox-trigger" src="img/actu-bonne-annee-2026-hero.jpg" alt="Équipe souriante bonne année 2026 TMBO" loading="eager" style="cursor:zoom-in;" />
+      <img class="article-hero-img" src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Équipe souriante bonne année 2026 TMBO" loading="eager"/>
 
       <p>L'année 2025 a été dense. Pour beaucoup d'entre vous — dirigeants, responsables administratifs, particuliers — elle a apporté son lot de réorganisations, de déménagements imposés, de locaux à vider dans l'urgence, de projets mis en pause puis relancés. Nous y étions. Et nous avons été heureux de l'être.</p>
 
@@ -224,28 +217,6 @@
     document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
   </script>
   <script src="mascotte.js"></script>
-
-  <!-- Lightbox -->
-  <div class="lightbox-overlay" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">✕</button>
-    <img id="lightboxImg" src="" alt="" />
-  </div>
-  <script>
-    const overlay = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
-    document.querySelectorAll('.lightbox-trigger').forEach(img => {
-      img.addEventListener('click', () => {
-        lbImg.src = img.src;
-        lbImg.alt = img.alt;
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-    function closeLightbox() { overlay.classList.remove('active'); document.body.style.overflow = ''; }
-    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-    overlay.addEventListener('click', e => { if(e.target === overlay) closeLightbox(); });
-    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
-  </script>
 </body>
 </html>
 
